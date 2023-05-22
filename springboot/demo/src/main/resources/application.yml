@@ -1,0 +1,38 @@
+---
+server:
+  port: 9090
+spring:
+  profiles:
+    active: default
+  datasource:
+    driver-class-name : com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mybatis?serverTimezone=GMT%2b8
+    username: root
+    password: 123456789
+
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+mybatis:
+  mapper-locations:
+    classpath:mapper/Course.xml #扫描所有的mybatis的xml文件
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+swagger:
+  enable: true
+  application-name: ${spring.application.name}
+  application-version: 1.0
+  application-description: springfox swagger 3.0整合Demo
+  try-host: http://localhost:${server.port}
+
+
+
+
